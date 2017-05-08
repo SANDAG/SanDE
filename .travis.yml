@@ -11,7 +11,7 @@ install:
 #command to run tests
 script:
   - python setup.py install
-  - py.test --cov SanDE --cov-report term-missing
+  - py.test --cov sande --cov-report term-missing
 
 after_success:
   - coveralls
