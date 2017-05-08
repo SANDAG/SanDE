@@ -23,6 +23,7 @@
 *.sqlite
 *.bak
 *.swp
+*.stackdump
 
 # OS Generated Files #
 ######################
