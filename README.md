@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/SANDAG/SanDE.svg?branch=master)](https://travis-ci.org/SANDAG/SanDE)
+[![Coverage Status](https://coveralls.io/repos/github/SANDAG/SanDE/badge.svg?branch=master)](https://coveralls.io/github/SANDAG/SanDE?branch=master)
 
 # SANDAG San Diego Demographic and Economic (SanDE) Model
 
