@@ -16,5 +16,5 @@ setup(
         'License :: OSI Approved :: BSD License'
     ],
     long_description=long_description,
-    packages=find_packages(exclude=['tests'])
+    packages=find_packages(exclude=['*.tests'])
 )
