@@ -1,5 +1,4 @@
-def func(x):
-    return x + 1
+from sande.sande import increment_one
 
-def test_answer():
-    assert func(4) == 5
+def test_increment_one():
+    assert increment_one(4) == 5
