@@ -12,10 +12,9 @@ setup(
     url='',
     classifiers=[
         'Development Status :: 3 - Alpha',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.6',
         'License :: OSI Approved :: BSD License'
     ],
     long_description=long_description,
-    packages=find_packages(where="src"),
-    package_dir={"": "src"}
+    packages=find_packages(exclude=['tests'])
 )
