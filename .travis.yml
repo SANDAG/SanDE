@@ -6,12 +6,11 @@ python:
 install:
   - pip install -r requirements.txt
   - pip install pytest pytest-cov
-  - pip install coveralls pep8
+  - pip install coveralls
   - pip install .
 
 #command to run tests
 script:
-  - pep8 sande
   - py.tests --cov sande --cov-report term-missing
 
 after_success:
