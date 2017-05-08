@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/SANDAG/SanDE.svg?branch=master)](https://travis-ci.org/SANDAG/SanDE)
+
 # SANDAG San Diego Demographic and Economic (SanDE) Model
 
 ## Demographic Model
