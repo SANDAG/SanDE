@@ -26,25 +26,12 @@ class InMigration(luigi.Task):
         time.sleep(15)
 
 
-class OutMigration(luigi.Task):
+class OutMigrationRates(luigi.Task):
     def requires(self):
         return None
 
     def output(self):
         return luigi.LocalTarget('out_migration.csv')
-
-    def run(self):
-        time.sleep(15)
-
-
-class MigrationRates(luigi.Task):
-
-    def requires(self):
-        return {'in_migration': InMigration(),
-                'out_migration': OutMigration()}
-
-    def output(self):
-        return luigi.LocalTarget('migration.csv')
 
     def run(self):
         time.sleep(15)
@@ -72,13 +59,13 @@ class DeathRates(luigi.Task):
         time.sleep(15)
 
 
-class SurvivedPop(luigi.Task):
+class NewPopulation(luigi.Task):
     def requires(self):
         return {'birth_rates': BirthRates(),
-                'death_rates': DeathRates()}
+                'in_migration': InMigration()}
 
     def output(self):
-        return luigi.LocalTarget('deaths.csv')
+        return luigi.LocalTarget('new_population.csv')
 
     def run(self):
         time.sleep(15)
@@ -87,12 +74,12 @@ class SurvivedPop(luigi.Task):
 class AgedPopulation(luigi.Task):
     def requires(self):
         return {'base_population': BasePopulationLoad(),
-                'out_migration': OutMigration(),
-                'survived_pop': SurvivedPop()
+                'out_migration_rates': OutMigrationRates(),
+                'death_rates': DeathRates()
                 }
 
     def output(self):
-        return luigi.LocalTarget('final_population.csv')
+        return luigi.LocalTarget('aged_population.csv')
 
     def run(self):
         time.sleep(15)
@@ -100,8 +87,8 @@ class AgedPopulation(luigi.Task):
 
 class FinalPopulation(luigi.Task):
     def requires(self):
-        return {'in_migration': InMigration(),
-                'aged_population': AgedPopulation()
+        return {'aged_population': AgedPopulation(),
+                'new_population': NewPopulation()
                 }
 
     def output(self):
